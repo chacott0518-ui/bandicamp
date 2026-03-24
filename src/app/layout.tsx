@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer'
 import MobileBottomBar from '@/components/layout/MobileBottomBar'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://bandicamp.net'),
+  metadataBase: new URL('https://bandicamp.vercel.app'),
   title: {
     default: '반딧불캠핑장 | 양평 서종 계곡 오토캠핑장 · 서울1시간 · 반딧불이체험',
     template: '%s | 반딧불캠핑장',

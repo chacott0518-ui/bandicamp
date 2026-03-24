@@ -1,65 +1,53 @@
-import Image from "next/image";
+import HeroSection from '@/components/home/HeroSection'
+import StatsSection from '@/components/home/StatsSection'
+import IntroSection from '@/components/home/IntroSection'
+import SeasonSection from '@/components/home/SeasonSection'
+import FacilitiesPreview from '@/components/home/FacilitiesPreview'
+import PricingPreview from '@/components/home/PricingPreview'
+import ReviewSection from '@/components/home/ReviewSection'
+import FaqPreview from '@/components/home/FaqPreview'
+import LocationSection from '@/components/home/LocationSection'
 
-export default function Home() {
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LodgingBusiness',
+  name: '반딧불캠핑장',
+  description: '경기도 양평 서종면 계곡 앞 반딧불캠핑장.',
+  url: 'https://bandicamp.net',
+  telephone: '+82-507-1373-9650',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '서종면 노문리 417-2',
+    addressLocality: '양평군',
+    addressRegion: '경기도',
+    postalCode: '12564',
+    addressCountry: 'KR',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 37.6463936,
+    longitude: 127.4332071,
+  },
+  priceRange: '₩60,000 ~ ₩70,000',
+  openingHours: 'Mo-Su 14:00-12:00',
+}
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="pb-20 md:pb-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <HeroSection />
+      <StatsSection />
+      <IntroSection />
+      <SeasonSection />
+      <FacilitiesPreview />
+      <PricingPreview />
+      <ReviewSection />
+      <FaqPreview />
+      <LocationSection />
     </div>
-  );
+  )
 }
